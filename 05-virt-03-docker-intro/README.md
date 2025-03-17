@@ -132,7 +132,7 @@ nano /etc/nginx/conf.d/default.conf
 
 ```docker rm -f custom-nginx-t2```
 
-![remove-container](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/docker-rm-cont.png)
+![removeContainer](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/docker-rm-cont.png)
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
 
@@ -147,10 +147,16 @@ nano /etc/nginx/conf.d/default.conf
 
 ```docker run -d -v $(pwd):/data --name debian-container -it debian:latest```
 
+![centos+debian](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/virtd-Docker1-t4-12.png)
+
 - Подключитесь к первому контейнеру с помощью ```docker exec``` и создайте текстовый файл любого содержания в ```/data```.
 - Добавьте ещё один файл в текущий каталог ```$(pwd)``` на хостовой машине.
+
+![files](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/virtd-Docker1-t4-34.png)
+
 - Подключитесь во второй контейнер и отобразите листинг и содержание файлов в ```/data``` контейнера.
 
+![listing](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/virtd-Docker1-t4-5.png)
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
 
