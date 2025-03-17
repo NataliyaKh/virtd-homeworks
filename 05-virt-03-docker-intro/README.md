@@ -51,6 +51,9 @@ curl -i 127.0.0.1:8080
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
 
+![console](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/virtd-Docker1-t2-1.png)
+
+![browser](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/virtd-Docker1-t2-2.png)
 
 ## Задача 3
 1. Воспользуйтесь docker help или google, чтобы узнать как подключиться к стандартному потоку ввода/вывода/ошибок контейнера "custom-nginx-t2".
