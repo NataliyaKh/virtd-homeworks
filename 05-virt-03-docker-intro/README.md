@@ -63,6 +63,10 @@ docker attach custom-nginx-t2
 ```
 3. Выполните ```docker ps -a``` и объясните своими словами почему контейнер остановился.
 
+![attach](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/docker-attach.png)
+
+![stopped](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/docker-ps.png)
+
 При нажатии Ctrl-C контейнер получает сигнал SIGINT, завершающий основной процесс контейнера (nginx), поэтому контейнер прекратил свою работу. 
 
 4. Перезапустите контейнер
@@ -72,6 +76,9 @@ lsof -i :8080
 kill 166156
 docker start custom-nginx-t2
 ```
+
+![start](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/docker-start_cleanports.png)
+
 5. Зайдите в интерактивный терминал контейнера "custom-nginx-t2" с оболочкой bash.
 ```
 docker exec -it custom-nginx-t2 bash
@@ -82,24 +89,50 @@ docker exec -it custom-nginx-t2 bash
 apt-get update && apt-get install -y nano
 ```
 
+![nano](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/docker-install-nano.png)
+
 7. Отредактируйте файл "/etc/nginx/conf.d/default.conf", заменив порт "listen 80" на "listen 81".
 ```
 nano /etc/nginx/conf.d/default.conf
 ```
 
+![changeport1](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/nginx-changeport.png)
+
 8. Запомните(!) и выполните команду ```nginx -s reload```, а затем внутри контейнера ```curl http://127.0.0.1:80 ; curl http://127.0.0.1:81```.
+
+![curls](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/nginx-reload-curls.png)
 
 9. Выйдите из контейнера, набрав в консоли  ```exit``` или Ctrl-D.
 10. Проверьте вывод команд: ```ss -tlpn | grep 127.0.0.1:8080``` , ```docker port custom-nginx-t2```, ```curl http://127.0.0.1:8080```. Кратко объясните суть возникшей проблемы.
 
-
+![wrongPort](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/nginx-wrong-port.png)
 
 Проблема связана с тем, что мы изменили слушающий порт внутри контейнера, в то время как на хосте маппинг остался прежним. Таким образом, хост пытается направить трафик на порт 80, в то время как nginx в контейнере ожидает трафика с порта 81. 
 
 11. * Это дополнительное, необязательное задание. Попробуйте самостоятельно исправить конфигурацию контейнера, используя доступные источники в интернете. Не изменяйте конфигурацию nginx и не удаляйте контейнер. Останавливать контейнер можно. [пример источника](https://www.baeldung.com/linux/assign-port-docker-container)
+
+Находим файлы с конфигурацией портов внутри нашего контейнера:
+
+![configs](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/docker-config-ports.png)
+
+Исправляем конфигурацию в файлах:
+* hostconfig.json
+
+![hostconfig](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/hostconfig.png)
+
+* config.v2.json
+
+![config.v2](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/configV2.png)
+
+Вот как изменится результат вывода команд из пункта 10 после правок конфигурации портов внутри контейнера:
+
+![redirect](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/docker-redirected.png)
+
 12. Удалите запущенный контейнер "custom-nginx-t2", не останавливая его.(воспользуйтесь --help или google)
 
 ```docker rm -f custom-nginx-t2```
+
+![remove-container](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/docker-rm-cont.png)
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
 
