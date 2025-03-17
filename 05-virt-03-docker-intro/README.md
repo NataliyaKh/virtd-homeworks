@@ -211,7 +211,7 @@ docker tag notburga/custom-nginx:1.0.0 127.0.0.1:5000/custom-nginx:latest
 docker push 127.0.0.1:5000/custom-nginx:latest
 ```
 
-![latest](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/docker-run-tag-push.png)
+![latest](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/docker-pull-tag-push.png)
 
 4. Откройте страницу "https://127.0.0.1:9000" и произведите начальную настройку portainer.(логин и пароль администратора)
 
