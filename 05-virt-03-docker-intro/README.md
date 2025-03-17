@@ -211,7 +211,12 @@ docker tag notburga/custom-nginx:1.0.0 127.0.0.1:5000/custom-nginx:latest
 docker push 127.0.0.1:5000/custom-nginx:latest
 ```
 
-4. Откройте страницу "https://127.0.0.1:9000" и произведите начальную настройку portainer.(логин и пароль адмнистратора)
+![latest](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/docker-run-tag-push.png)
+
+4. Откройте страницу "https://127.0.0.1:9000" и произведите начальную настройку portainer.(логин и пароль администратора)
+
+![portainer](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/portainer-create-user.png)
+
 5. Откройте страницу "http://127.0.0.1:9000/#!/home", выберите ваше local  окружение. Перейдите на вкладку "stacks" и в "web editor" задеплойте следующий компоуз:
 
 ```
@@ -223,22 +228,31 @@ services:
     ports:
       - "9090:80"
 ```
+
+![stack](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/portainer-create-stack.png)
+
+![stack1](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/portainer-stack-created.png)
+
 6. Перейдите на страницу "http://127.0.0.1:9000/#!/2/docker/containers", выберите контейнер с nginx и нажмите на кнопку "inspect". В представлении <> Tree разверните поле "Config" и сделайте скриншот от поля "AppArmorProfile" до "Driver".
 
+![tree1](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/portainer-tree1.png)
 
+![tree2](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/portainer-tree2.png)
 
 7. Удалите любой из манифестов компоуза (например compose.yaml).  Выполните команду "docker compose up -d". Прочитайте warning, объясните суть предупреждения и выполните предложенное действие. Погасите compose-проект ОДНОЙ(обязательно!!) командой.
 
+![orphans](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/docker-orphans.png)
 
 В предупреждении сообщается, что при запуске проекта обнаружены контейнеры, не указанные в оставшемся манифесте. Их предлагается удалить при новом запуске посредством команды ```docker compose up -d --remove-orphans```. 
 
 Запуск с удалением непривязанных контейнеров:
 
+![remove-orphans](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/docker-remove-orphans.png)
 
 Гасим проект:
 ```docker compose down```
 
-
+![docker-compose-down](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/docker-compose-down.png)
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод, файл compose.yaml , скриншот portainer c задеплоенным компоузом.
 
