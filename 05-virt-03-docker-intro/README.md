@@ -187,15 +187,21 @@ services:
 
 И выполните команду "docker compose up -d". Какой из файлов был запущен и почему? (подсказка: https://docs.docker.com/compose/compose-application-model/#the-compose-file )
 
+![compose](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/docker-run-compose.png)
+
 В соответствии с правилами Docker для запуска осуществлятся поиск файлов compose.yaml и docker-compose.yaml, но в случае обнаружения двух файлов в директории приоритет отдаётся файлу с именем compose.yaml. 
 
-2. Отредактируйте файл compose.yaml так, чтобы были запущенны оба файла. (подсказка: https://docs.docker.com/compose/compose-file/14-include/)
+2. Отредактируйте файл compose.yaml так, чтобы были запущены оба файла. (подсказка: https://docs.docker.com/compose/compose-file/14-include/)
 
 В compose.yaml добавляем настройку:
 ```
 include:
   - docker-compose.yaml
 ```
+
+![include](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/docker-compose-include.png)
+
+![compose-ed](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-03-docker-intro/docker-run-compose+docker.png)
 
 3. Выполните в консоли вашей хостовой ОС необходимые команды чтобы залить образ custom-nginx как custom-nginx:latest в запущенное вами, локальное registry. Дополнительная документация: https://distribution.github.io/distribution/about/deploying/
 
