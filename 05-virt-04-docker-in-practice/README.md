@@ -33,10 +33,9 @@ See 'snap info docker' for additional versions.
 
 ## Задача 1
 1. Сделайте в своем github пространстве fork [репозитория](https://github.com/netology-code/shvirtd-example-python/blob/main/README.md).
-   Примечание: В связи с доработкой кода python приложения. Если вы уверены что задание выполнено вами верно, а код python приложения работает с ошибкой то используйте вместо main.py файл not_tested_main.py(просто измените CMD)
-      
+   Примечание: В связи с доработкой кода python приложения. Если вы уверены что задание выполнено вами верно, а код python приложения работает с ошибкой то используйте вместо main.py файл not_tested_main.py(просто измените CMD)      
    
-3. Создайте файл с именем ```Dockerfile.python``` для сборки данного проекта(для 3 задания изучите https://docs.docker.com/compose/compose-file/build/ ). Используйте базовый образ ```python:3.9-slim```. 
+2. Создайте файл с именем ```Dockerfile.python``` для сборки данного проекта(для 3 задания изучите https://docs.docker.com/compose/compose-file/build/ ). Используйте базовый образ ```python:3.9-slim```. 
 Обязательно используйте конструкцию ```COPY . .``` в Dockerfile. Не забудьте исключить ненужные в имадже файлы с помощью dockerignore. Протестируйте корректность сборки.  
 
 ![Dockerfile.python](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-04-docker-in-practice/Dockerfile.python.png)
@@ -45,11 +44,11 @@ See 'snap info docker' for additional versions.
 
 ![check](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-04-docker-in-practice/virtd-Docker2-t1-check.png)
 
-4. (Необязательная часть, *) Изучите инструкцию в проекте и запустите web-приложение без использования docker в venv. (Mysql БД можно запустить в docker run).
+3. (Необязательная часть, *) Изучите инструкцию в проекте и запустите web-приложение без использования docker в venv. (Mysql БД можно запустить в docker run).
 
 ![venv](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-04-docker-in-practice/virtd-Docker2-t1-venv.png)
 
-5. (Необязательная часть, *) По образцу предоставленного python кода внесите в него исправление для управления названием используемой таблицы через ENV переменную.
+4. (Необязательная часть, *) По образцу предоставленного python кода внесите в него исправление для управления названием используемой таблицы через ENV переменную.
 
 Вводим переменную db_table: 
 
