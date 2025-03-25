@@ -107,12 +107,14 @@ https://github.com/NataliyaKh/shvirtd-example-python
 
 4. Зайдите на сайт проверки http подключений, например(или аналогичный): ```https://check-host.net/check-http``` и запустите проверку вашего сервиса ```http://<внешний_IP-адрес_вашей_ВМ>:8090```. Таким образом трафик будет направлен в ingress-proxy. ПРИМЕЧАНИЕ:  приложение main.py( в отличие от not_tested_main.py) весьма вероятно упадет под нагрузкой, но успеет обработать часть запросов - этого достаточно. Обновленная версия (main.py) не прошла достаточного тестирования временем, но должна справиться с нагрузкой.
 
-![scripts](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-04-docker-in-practice/virtd-Docker2-t3-mysql-scripts.png)
+![check-host](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-04-docker-in-practice/virtd-httpcheck.png)
 
 5. (Необязательная часть) Дополнительно настройте remote ssh context к вашему серверу. Отобразите список контекстов и результат удаленного выполнения ```docker ps -a```
 6. В качестве ответа повторите  sql-запрос и приложите скриншот с данного сервера, bash-скрипт и ссылку на fork-репозиторий.
 
+![sql1](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-04-docker-in-practice/virtd-Docker2-t4-mysql-monitor.png)
 
+![sql2](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-04-docker-in-practice/virtd-Docker2-t4-mysql-last.png)
 
 ## Задача 5 (*)
 1. Напишите и задеплойте на вашу облачную ВМ bash скрипт, который произведет резервное копирование БД mysql в директорию "/opt/backup" с помощью запуска в сети "backend" контейнера из образа ```schnitzler/mysqldump``` при помощи ```docker run ...``` команды. Подсказка: "документация образа."
@@ -124,9 +126,15 @@ https://github.com/NataliyaKh/shvirtd-example-python
 Скачайте docker образ ```hashicorp/terraform:latest``` и скопируйте бинарный файл ```/bin/terraform``` на свою локальную машину, используя dive и docker save.
 Предоставьте скриншоты  действий .
 
+![dive](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-04-docker-in-practice/dive_commands.png)
+
+![layers](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-04-docker-in-practice/dive_layers.png)
+
 ## Задача 6.1
 Добейтесь аналогичного результата, используя docker cp.  
-Предоставьте скриншоты  действий .
+Предоставьте скриншоты  действий.
+
+![docker-cp](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-04-docker-in-practice/docker-cp.png)
 
 ## Задача 6.2 (**)
 Предложите способ извлечь файл из контейнера, используя только команду docker build и любой Dockerfile.  
