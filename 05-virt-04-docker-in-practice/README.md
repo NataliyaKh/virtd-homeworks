@@ -40,8 +40,6 @@ See 'snap info docker' for additional versions.
 
 ![Dockerfile.python](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-04-docker-in-practice/Dockerfile.python.png)
 
-![project](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-04-docker-in-practice/virtd-Docker2-t1.png)
-
 ![check](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-04-docker-in-practice/virtd-Docker2-t1-check.png)
 
 3. (Необязательная часть, *) Изучите инструкцию в проекте и запустите web-приложение без использования docker в venv. (Mysql БД можно запустить в docker run).
@@ -95,8 +93,6 @@ See 'snap info docker' for additional versions.
 2. Подключитесь к Вм по ssh и установите docker.
 3. Напишите bash-скрипт, который скачает ваш fork-репозиторий в каталог /opt и запустит проект целиком.
 
-
-
 ```
 !/bin/bash
 sudo apt update && sudo apt install git -y
@@ -111,7 +107,7 @@ https://github.com/NataliyaKh/shvirtd-example-python
 
 4. Зайдите на сайт проверки http подключений, например(или аналогичный): ```https://check-host.net/check-http``` и запустите проверку вашего сервиса ```http://<внешний_IP-адрес_вашей_ВМ>:8090```. Таким образом трафик будет направлен в ingress-proxy. ПРИМЕЧАНИЕ:  приложение main.py( в отличие от not_tested_main.py) весьма вероятно упадет под нагрузкой, но успеет обработать часть запросов - этого достаточно. Обновленная версия (main.py) не прошла достаточного тестирования временем, но должна справиться с нагрузкой.
 
-
+![scripts](https://github.com/NataliyaKh/virtd-homeworks/blob/main/05-virt-04-docker-in-practice/virtd-Docker2-t3-mysql-scripts.png)
 
 5. (Необязательная часть) Дополнительно настройте remote ssh context к вашему серверу. Отобразите список контекстов и результат удаленного выполнения ```docker ps -a```
 6. В качестве ответа повторите  sql-запрос и приложите скриншот с данного сервера, bash-скрипт и ссылку на fork-репозиторий.
